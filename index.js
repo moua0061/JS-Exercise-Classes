@@ -131,9 +131,17 @@ console.log(corolla.drive());
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+  constructor (attr){
+    this.name = attr.name;
+    this.age = attr.age;
+    this.location = attr.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+  }
 }
-
+let person1 = new Lambdasian('red', 34, 'Miami');
+console.log(person1);
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
@@ -148,8 +156,19 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian{
+  constructor(attr2){
+    super(attr2);
+    this.specialty = attr2.specialty;
+    this.favLanguage = attr2.favLanguage;
+    this.catchPhrase = attr2.catchPhrase;
+  }
+  demo(subject){
+    return `Today we are learning about ${subject} where subject is the param passed in.`;
+  }
+  grade (student, subject){
+    return `${student} receives a perfect score on ${subject}`;
+  }
 }
 /*
   TASK 5
@@ -167,7 +186,7 @@ class Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
-   
+
 }
 
 /*
