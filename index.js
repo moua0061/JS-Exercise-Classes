@@ -167,7 +167,7 @@ class Instructor extends Lambdasian{
     return `Today we are learning about ${subject} where subject is the param passed in.`;
   }
   grade (student, subject){
-    return `${student} receives a perfect score on ${subject}`;
+    return `${student.name} receives a perfect score on ${subject}`;
   }
 }
 /*
@@ -216,8 +216,18 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(attributes4){
+    super(attributes4);
+      this.gradClassName = attributes4.gradClassName;
+      this.favInstructor = attributes4.favInstructor;
+  }
+  standUp(slackChannel){
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+  }
+  debugsCode(studentSubject, subject){
+    return `${this.name} debugs ${studentSubject.name}'s code on ${subject}'`;
+  }
 }
 /*
   STRETCH PROBLEM (no tests!)
