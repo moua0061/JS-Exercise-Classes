@@ -92,8 +92,31 @@ console.log(neo2.toString());
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon){
+    this.model = model,
+    this.milesPerGallon = milesPerGallon,
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    this.tank = gallons + this.tank;
+  }
+  drive(distance){
+    let maxMilesCanBeDriven = this.tank * this.milesPerGallon;
+    if (distance <= maxMilesCanBeDriven){
+      this.odometer = distance + this.odometer;
+      this.tank = this.tank - (distance / this.milesPerGallon);
+    } else {
+      this.tank = 0;
+      this.odometer = this.odometer + maxMilesCanBeDriven;
+      return `I ran out of fuel at ${this.odometer}!`;
+    }
+  }
 }
+let corolla = new Car('Toyota', 25);
+console.log(corolla);
+corolla.maxMilesCanBeDriven = 300;
+console.log(corolla.drive());
 
 /*
   TASK 3
