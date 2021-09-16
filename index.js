@@ -131,10 +131,10 @@ console.log(corolla.drive());
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor (attr){
-    this.name = attr.name;
-    this.age = attr.age;
-    this.location = attr.location;
+  constructor (attributes){
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
   }
   speak(){
     return `Hello my name is ${this.name}, I am from ${this.location}.`;
@@ -157,11 +157,11 @@ console.log(person1);
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian{
-  constructor(attr2){
-    super(attr2);
-    this.specialty = attr2.specialty;
-    this.favLanguage = attr2.favLanguage;
-    this.catchPhrase = attr2.catchPhrase;
+  constructor(attributes2){
+    super(attributes2);
+    this.specialty = attributes2.specialty;
+    this.favLanguage = attributes2.favLanguage
+    this.catchPhrase = attributes2.catchPhrase;
   }
   demo(subject){
     return `Today we are learning about ${subject} where subject is the param passed in.`;
@@ -185,8 +185,22 @@ class Instructor extends Lambdasian{
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+  constructor(attributes3){
+    super(attributes3);
+    this.previousBackground = attributes3.previousBackground;
+    this.className = attributes3.className;
+    this.favSubjects = attributes3.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}, `;
+  }
+  PRAssignment (subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint chalenge on ${subject}`;
+  }
 }
 
 /*
@@ -203,7 +217,7 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager {
-   
+
 }
 /*
   STRETCH PROBLEM (no tests!)
