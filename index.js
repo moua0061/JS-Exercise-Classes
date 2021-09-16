@@ -170,6 +170,7 @@ class Instructor extends Lambdasian{
     return `${student.name} receives a perfect score on ${subject}`;
   }
 }
+
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -225,8 +226,8 @@ class ProjectManager extends Instructor{
   standUp(slackChannel){
     return `${this.name} announces to ${slackChannel}, @channel standy times!`;
   }
-  debugsCode(studentSubject, subject){
-    return `${this.name} debugs ${studentSubject.name}'s code on ${subject}'`;
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}'`;
   }
 }
 /*
